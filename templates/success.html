@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Onboarding Complete</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Welcome {{ name }}!</h1>
+
+    <div class="success-card">
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Department:</strong> {{ department }}</p>
+
+        <p>User onboarding completed successfully.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

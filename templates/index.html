@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Onboarding</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>User Onboarding</h1>
+
+    <form action="/onboard" method="POST">
+
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email Address</label>
+        <input type="email" name="email" required>
+
+        <label>Department</label>
+        <select name="department">
+            <option>IT</option>
+            <option>HR</option>
+            <option>Finance</option>
+            <option>Operations</option>
+        </select>
+
+        <button type="submit">
+            Submit
+        </button>
+
+    </form>
+</div>
+
+</body>
+</html>
