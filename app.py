@@ -46,6 +46,35 @@ def onboard():
         department=department
     )
 
+@app.route("/dbtest")
+def dbtest():
+
+    try:
+
+        conn = get_connection()
+
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT DB_NAME()")
+
+        db_name = cursor.fetchone()[0]
+
+        conn.close()
+
+        return f"Connected successfully to {db_name}"
+
+    except Exception as e:
+
+        return f"ERROR: {str(e)}"
+    
+@app.route("/check-pyodbc")
+def check_pyodbc():
+    try:
+        import pyodbc
+        return f"pyodbc installed, version: {pyodbc.version}"
+    except Exception as e:
+        return f"pyodbc NOT available: {str(e)}"
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)
     
