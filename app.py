@@ -18,6 +18,9 @@ def onboard():
         department = request.form.get("department")
         
         conn = get_connection()
+        if conn:
+            print("Connection ready")
+            
         cursor = conn.cursor()
 
         cursor.execute("""
@@ -31,6 +34,7 @@ def onboard():
         """, (name, email, department))
 
         conn.commit()
+        print("Insert successful")
         conn.close()
 
     # Normally save to database here
